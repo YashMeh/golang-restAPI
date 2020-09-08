@@ -7,14 +7,12 @@ import (
 	"net/http"
 	"os"
 
+	"example.com/m/v2/db"
 	"example.com/m/v2/store"
 	"github.com/gorilla/handlers"
 	_ "github.com/lib/pq"
 	"github.com/spf13/viper"
 )
-
-//Creating a global pointer for db
-var db *sql.DB
 
 const (
 	dbhost = "DBHOST"
@@ -45,12 +43,10 @@ func viperEnvVariable(key string) string {
 }
 
 func main() {
-
+	initDb()
 	//Initialised the mux router
 	r := store.NewRouter()
 
-	// books = append(books, Book{ID: "1", Isbn: "122", Title: "Book one", Author: &Author{FirstName: "yash", LastName: "Mehrotra"}})
-	// books = append(books, Book{ID: "2", Isbn: "123", Title: "Book two", Author: &Author{FirstName: "sohamm", LastName: "Joshii"}})
 	//Enabling CORS
 	allowedOrigins := handlers.AllowedOrigins([]string{"*"})
 	allowedMethods := handlers.AllowedMethods([]string{"GET", "POST", "DELETE", "PUT"})
@@ -69,11 +65,11 @@ func initDb() {
 		config[dbhost], config[dbport],
 		config[dbuser], config[dbpass], config[dbname])
 
-	db, err = sql.Open("postgres", psqlInfo)
+	db.DBCon, err = sql.Open("postgres", psqlInfo)
 	if err != nil {
 		panic(err)
 	}
-	err = db.Ping()
+	err = db.DBCon.Ping()
 	if err != nil {
 		panic(err)
 	}

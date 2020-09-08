@@ -2,17 +2,17 @@ package store
 
 //Book struct
 type Book struct {
-	ID     string  `json:"id"`
-	Isbn   string  `json:"isbn"`
-	Title  string  `json:"title"`
-	Author *Author `json:"author"`
+	ID    int     `json:"id"`
+	Isbn  string  `json:"isbn"`
+	Title string  `json:"title"`
+	Price float64 `json:"price"`
 }
 
-//Author struct
-type Author struct {
-	FirstName string `json:"firstname"`
-	LastName  string `json:"lastname"`
-}
+// //Author struct
+// type Author struct {
+// 	FirstName string `json:"firstname"`
+// 	LastName  string `json:"lastname"`
+// }
 
 //Books is ...
-var Books []Book
+// var Books []Book
