@@ -56,7 +56,7 @@ go test
 - [x] Include route tests
 - [ ] Include integration tests
 - [x] Dockerize
-- [ ] Generate go-report
+- [x] Generate go-report
 - [ ] Create CI
 
 ### References
