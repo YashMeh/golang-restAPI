@@ -6,14 +6,14 @@ This is a very simple REST api, made entirely for the sake of learning coding pa
 
 - Create postgres table using `table.sql`
 
-- Create an `.env` file with the database credentials
+- Setup environment variables in the root directory using
 
 ```
-DBHOST=localhost
-DBPORT=5432
-DBUSER=parzival
-DBPASS=yash123
-DBNAME=foo
+export DBHOST=127.0.0.1
+export DBPORT=5432
+export DBUSER=parzival
+export DBPASS=yash123
+export DBNAME=foo
 ```
 
 ### Running :running:

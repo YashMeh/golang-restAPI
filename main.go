@@ -11,7 +11,6 @@ import (
 	"example.com/m/v2/store"
 	"github.com/gorilla/handlers"
 	_ "github.com/lib/pq"
-	"github.com/spf13/viper"
 )
 
 const (
@@ -21,26 +20,6 @@ const (
 	dbpass = "DBPASS"
 	dbname = "DBNAME"
 )
-
-func viperEnvVariable(key string) string {
-
-	viper.SetConfigFile(".env")
-
-	// Find and read the config file
-	err := viper.ReadInConfig()
-
-	if err != nil {
-		log.Fatalf("Error while reading config file %s", err)
-	}
-
-	value, ok := viper.Get(key).(string)
-
-	if !ok {
-		log.Fatalf("Invalid type assertion")
-	}
-
-	return value
-}
 
 func main() {
 	//Initialised the database
@@ -82,10 +61,10 @@ func initDb() {
 func dbConfig() map[string]string {
 	conf := make(map[string]string)
 
-	conf[dbhost] = viperEnvVariable(dbhost)
-	conf[dbport] = viperEnvVariable(dbport)
-	conf[dbuser] = viperEnvVariable(dbuser)
-	conf[dbpass] = viperEnvVariable(dbpass)
-	conf[dbname] = viperEnvVariable(dbname)
+	conf[dbhost] = os.Getenv(dbhost)
+	conf[dbport] = os.Getenv(dbport)
+	conf[dbuser] = os.Getenv(dbuser)
+	conf[dbpass] = os.Getenv(dbpass)
+	conf[dbname] = os.Getenv(dbname)
 	return conf
 }
