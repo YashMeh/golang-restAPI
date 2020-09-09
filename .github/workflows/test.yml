@@ -8,18 +8,20 @@ on:
     branches:
       - master
 jobs:
-  ci:
-    runs-on: ubuntu-latest
-    container:
-      image: golang:1.12.0-alpine3.9
+  test:
+    strategy:
+      matrix:
+        go-version: [1.14.x, 1.15.x]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
-      - name: Git checkout
+      - name: Install Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: ${{ matrix.go-version }}
+      - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Install dependencies and start api
-        run: |
-          go get
-          go build -o restapi && ./restapi
-
+      - name: Build and run API
+        run: go build -o restapi && ./restapi
       - name: Run Tests
         run: go test
