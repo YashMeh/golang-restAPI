@@ -17,7 +17,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install dependencies and start api
-        run: go build -o restapi && ./restapi
+        run: |
+          go get
+          go build -o restapi && ./restapi
 
       - name: Run Tests
         run: go test
