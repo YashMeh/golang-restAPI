@@ -2,6 +2,16 @@
 
 This is a very simple REST api, made entirely for the sake of learning coding patterns in golang.Any suggestions are welcome :smiley:
 
+### Endpoints
+
+| Method | Endpoint     | Description                        |
+| ------ | ------------ | ---------------------------------- |
+| GET    | /api/books   | returns the list of all books      |
+| GET    | /api/book/id | returns the book with the given id |
+| POST   | /api/books   | creates a book                     |
+| PUT    | /api/book/id | updates the book with the given id |
+| DELETE | /api/book/id | deletes the book with the given id |
+
 ### Setup
 
 - Create postgres table using `table.sql`
