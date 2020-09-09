@@ -1,5 +1,7 @@
 ## RESTful API using golang
 
+This is a very simple REST api, made entirely for the sake of learning coding patterns in golang.Any suggestions are welcome :smiley:
+
 ### Setup
 
 - Create postgres table using `table.sql`
@@ -20,8 +22,16 @@ DBNAME=foo
 go build -o restapi && ./restapi
 ```
 
+### Testing :rotating_light:
+
+```
+go test
+```
+
 ### Todo
 
-[ ] Include tests
-[ ] Dockerize
-[ ] Generate go-report
+- [x] Include route tests
+- [ ] Include integration tests
+- [x] Dockerize
+- [ ] Generate go-report
+- [x] Create CI
