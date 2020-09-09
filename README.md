@@ -24,6 +24,14 @@ go build -o restapi && ./restapi
 
 ### Testing :rotating_light:
 
+- Start the API using
+
+```
+go build -o restapi && ./restapi
+```
+
+- Run the tests
+
 ```
 go test
 ```
@@ -34,4 +42,4 @@ go test
 - [ ] Include integration tests
 - [x] Dockerize
 - [ ] Generate go-report
-- [x] Create CI
+- [ ] Create CI
