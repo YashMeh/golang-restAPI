@@ -43,7 +43,10 @@ func viperEnvVariable(key string) string {
 }
 
 func main() {
+	//Initialised the database
 	initDb()
+	//Creating the table
+	db.DBCon.Query("create table if not exists books(id serial,isbn varchar(8),title text not null,price NUMBERIC(10,2) NOT NULL DEFAULT 0.00,CONSTRAINT books_pkey PRIMARY KEY (id)")
 	//Initialised the mux router
 	r := store.NewRouter()
 
