@@ -1,5 +1,10 @@
 ## RESTful API using golang
 
+<br>
+
+[![Go Report Card](https://www.goreportcard.com/badge/github.com/YashMeh/golang-restAPI)](https://www.goreportcard.com/badge/github.com/YashMeh/golang-restAPI)
+
+<br>
 This is a very simple REST api, made entirely for the sake of learning coding patterns in golang.Any suggestions are welcome :smiley:
 
 ### Endpoints
@@ -53,3 +58,9 @@ go test
 - [x] Dockerize
 - [ ] Generate go-report
 - [ ] Create CI
+
+### References
+
+- [Clean Architecture by Angad Sharma](https://github.com/L04DB4L4NC3R/clean-architecture-sample)
+
+- [Full stack epic part - 1](https://github.com/morris-ribs/musicstore)
