@@ -32,7 +32,7 @@ jobs:
       - name: Build and run API
         run: go build -o restapi && ./restapi
         env:
-          DBHOST: postgrescon
+          DBHOST: localhost
           DBPORT: 5432
           DBUSER: yash
           DBPASS: yash123
